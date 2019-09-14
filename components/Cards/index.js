@@ -20,7 +20,7 @@
 const cardSection = document.querySelector(".cards-container");
 
 function newComp(info) {
-  console.log(info);
+  //   console.log(info);
   //create
   const card = document.createElement("div");
   const headline = document.createElement("div");
@@ -58,8 +58,7 @@ articleNames.forEach(article => {
     .get(`https://lambda-times-backend.herokuapp.com/articles`)
     .then(cardResults => {
       //   console.log(cardResults.data);
-      console.log(cardResults.data.articles[article]);
-      //   console.log(cardResults.data.articles[article].length);
+      //   console.log(cardResults.data.articles[article]);
       for (let i = 0; i < cardResults.data.articles[article].length; i++) {
         // console.log(cardResults.data.articles[article][i]);
         const cards = newComp(cardResults.data.articles[article][i]);

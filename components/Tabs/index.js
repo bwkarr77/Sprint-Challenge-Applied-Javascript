@@ -12,23 +12,24 @@ const topicSection = document.querySelector(".topics");
 
 function newTab(data) {
   //create
-  const tabTopic = document.createElement("div");
+  const tab = document.createElement("div");
+  const tabTopic = document.createElement("p");
   //structure
+  tab.appendChild(tabTopic);
   //content
-  tabTopic.textContent = data.topics;
+  tab.textContent = data.topics;
   //   data.topics.forEach(i => {
-  //     // console.log(i);
-  //     tabTopic.appendChild(data.topics[i]);
+  //     console.log(i);
+  //     tabTopic.textContent = i;
   //   });
   //style
-  tabTopic.classList.add("tab");
-  //event listener
-  return tabTopic;
+  tab.classList.add("tab");
+  return tab;
 }
 axios
   .get(`https://lambda-times-backend.herokuapp.com/topics`)
   .then(tabResults => {
-    // console.log("tab", tabResults.data.topics);
+    // console.log(tabResults.data.topics);
     const tabs = newTab(tabResults.data);
     topicSection.appendChild(tabs);
   })
